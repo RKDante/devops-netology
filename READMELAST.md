@@ -7,11 +7,14 @@ Date:   Thu Jun 18 10:29:58 2020 -0400
    Update CHANGELOG.md
 
 Задание 2
-1. Коммиту 85024d3 соответствует тег v0.12.23
+1. $ git tag --points-at 85024d3
+Коммиту 85024d3 соответствует тег v0.12.23
 
-2. 2 родителя: 56cd7859e05c36c06b56d013b55a252d0bb7e158  9ea88f22fc6269854151c571162c5bcf958bee2b
+2. $ git show b8d720^@
+2 родителя: 56cd7859e05c36c06b56d013b55a252d0bb7e158  9ea88f22fc6269854151c571162c5bcf958bee2b
 
-3. 33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24) v0.12.24
+3. $ git log v0.12.23..v0.12.24
+33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24) v0.12.24
 b14b74c4939dcab573326f4e3ee2a62e23e12f89 [Website] vmc provider links
 3f235065b9347a758efadc92295b540ee0a5e26e Update CHANGELOG.md
 6ae64e247b332925b872447e9ce869657281c2bf registry: Fix panic when server is unreachable
@@ -22,9 +25,15 @@ d5f9411f5108260320064349b757f55c09bc4b80 command: Fix bug when using terraform l
 dd01a35078f040ca984cdd349f18d0b67e486c35 Update CHANGELOG.md
 225466bc3e5f35baa5d07197bbc079345b77525e Cleanup after v0.12.23 release
 
-4. commit 5af1e6234ab6da412fb8637393c5a17a1b293663
+4. $ git log -S"func synchronizedWriters(" --pretty=oneline
+commit 5af1e6234ab6da412fb8637393c5a17a1b293663
+Другой коммит нам не подходит, так как в нем просто ремувнули данную функцию за ее ненадобность.
 
-5. commit 8364383c359a6b738a436d1b7745ccdce178df47
+5. git grep -p "globalPluginDirs("
+Тут мы нашли 2 файла, где есть эта функция
+
+$ git log -L :globalPluginDirs:plugins.go
+commit 8364383c359a6b738a436d1b7745ccdce178df47
 commit c0b17610965450a89598da491ce9b6b5cbd6393f
 commit 35a058fb3ddfae9cfee0b3893822c9a95b920f4c
 
