@@ -115,9 +115,7 @@ exit
 ```
 - Добавьте еще один файл в папку /data на хостовой машине;
 ```
-┌──(root㉿kali)-[/home/kali]
-└─# echo "New file-2" >> data/file.txt
-
+root@dante-virtual-machine:/home/dante# echo "New file-2" >> data/file.txt
 ```
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
 ```
